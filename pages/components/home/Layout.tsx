@@ -31,22 +31,22 @@ const Layout = ({ children, title }: Props) => {
               </Link>
             </div>
             <div className="flex pr-8 space-x-12 font-bold">
-              <Link href="/" passHref={true}>
+              <Link href="/Threedots" passHref={true}>
                 <span className="text-xl transition-all duration-200 hover:text-blue-500 cursor-pointer">
                   ダッシュボード
                 </span>
               </Link>
-              <Link href="/" passHref={true}>
+              <Link href="/Threedots" passHref={true}>
                 <span className="text-xl transition-all duration-200 hover:text-blue-500 cursor-pointer">
                   タスク
                 </span>
               </Link>
-              <Link href="/" passHref={true}>
+              <Link href="/Threedots" passHref={true}>
                 <span className="text-xl transition-all duration-200 hover:text-blue-500 cursor-pointer">
                   メンバー
                 </span>
               </Link>
-              <Link href="/" passHref={true}>
+              <Link href="/Threedots" passHref={true}>
                 <span className="text-xl transition-all duration-200 hover:text-blue-500 cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const Layout = ({ children, title }: Props) => {
                   </svg>
                 </span>
               </Link>
-              <Link href="/" passHref={true}>
+              <Link href="/Threedots" passHref={true}>
                 <span className="text-xl transition-all duration-200 hover:text-blue-500 cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ const Layout = ({ children, title }: Props) => {
         {/* サイド バー ------------ */}
         <div className="flex flex-grow">
           <div className="w-1/6 bg-blue-900 text-center text-white">
-            <Link href="/">
+            <Link href="/Threedots">
               <span className="flex font-bold text-xl py-6 pl-8 transition duration-200 hover:bg-white hover:text-blue-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ const Layout = ({ children, title }: Props) => {
                 <p className="px-6">ファイル</p>
               </span>
             </Link>
-            <Link href="/about">
+            <Link href="/Threedots">
               <span className="flex font-bold text-xl py-6 pl-8 transition duration-200 hover:bg-white hover:text-blue-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,7 @@ const Layout = ({ children, title }: Props) => {
                 <p className="px-6">カレンダー</p>
               </span>
             </Link>
-            <Link href="/blog">
+            <Link href="/Threedots">
               <span className="flex font-bold text-xl py-6 pl-8 transition duration-200 hover:bg-white hover:text-blue-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +147,7 @@ const Layout = ({ children, title }: Props) => {
                 <p className="px-6">メッセージ</p>
               </span>
             </Link>
-            <Link href="/contact">
+            <Link href="/Threedots">
               <span className="flex font-bold text-xl py-6 pl-8 transition duration-200 hover:bg-white hover:text-blue-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +166,7 @@ const Layout = ({ children, title }: Props) => {
                 <p className="px-6">ガントチャート</p>
               </span>
             </Link>
-            <Link href="/faq">
+            <Link href="/Threedots">
               <span className="flex font-bold text-xl py-6 pl-8 transition duration-200 hover:bg-white hover:text-blue-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -212,4 +212,4 @@ interface Props {
   title: string;
 }
 
-export default Layout;
+export default React.memo(Layout);
