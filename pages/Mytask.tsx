@@ -3,7 +3,7 @@ import Layout from "./components/home/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Dashboard() {
+export default function Mytask() {
   const data = [
     {
       memberName: "メンバー A",
@@ -87,7 +87,7 @@ export default function Dashboard() {
           {/* 右半分 1/2 */}
           <div
             className="w-1/2 md:w-3/5 lg:w-1/2 space-y-2 rounded-md"
-            style={{ overflowY: "scroll" }}
+            style={{ maxHeight: "91vh", overflowY: "scroll" }}
           >
             {/* 右部　メンバー進捗 */}
             {data.map((member, index) => (

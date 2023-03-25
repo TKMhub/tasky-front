@@ -7,5 +7,5 @@ body::-webkit-scrollbar {
 }
 
 *{
-    /* overflow: hidden; */
+    overflow: hidden;
 }

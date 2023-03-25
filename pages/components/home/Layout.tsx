@@ -138,13 +138,9 @@ const Layout = ({ children, title }: Props) => {
         />
       </Head>
 
-      <main className="h-screen flex flex-col">
+      <main className="flex flex-col h-screen">
         {/* トップ バー ------------ */}
-        <header
-          className="
-         top-0 left-0 right-0 z-50 m-0 py-3 h-20 bg-white shadow-md "
-        >
-          <nav className="flex justify-between items-center mx-auto">
+          <header className="flex justify-between items-center z-50 m-0 py-4 bg-white shadow-md h-16 fixed top-0 w-full">
             <div className="pl-4">
               <Link href="/" passHref={true}>
                 <Image
@@ -156,7 +152,7 @@ const Layout = ({ children, title }: Props) => {
               </Link>
             </div>
             <div className="flex pr-8 space-x-12 font-bold">
-              <Link href="/" passHref={true}>
+              <Link href="/Dashboard" passHref={true}>
                 <span className="text-xl transition-all duration-200 hover:text-blue-500 cursor-pointer">
                   ダッシュボード
                 </span>
@@ -208,12 +204,11 @@ const Layout = ({ children, title }: Props) => {
                 </span>
               </Link>
             </div>
-          </nav>
         </header>
         <hr />
 
+        <div className="flex flex-grow pt-16">
         {/* サイド バー ------------ */}
-        <div className="flex flex-grow">
           <div className="w-full sm:w-1/6 bg-blue-900 text-center text-white">
             {/* <span
               className="flex font-bold text-xl py-6 pl-8 transition duration-200 hover:bg-white hover:text-blue-500"
@@ -236,7 +231,7 @@ const Layout = ({ children, title }: Props) => {
               </Link>
             ))}
             <div
-              className={`fixed bottom-0 left-0 p-5 sm:p-10 m-8 rounded-2xl bg-white text-sm text-center h-50 ${
+              className={`fixed bottom-0 left-0 p-5 sm:p-10 m-8 rounded-2xl bg-white text-sm text-center ${
                 isSidebarCollapsed ? "w-16" : "w-30"
               } ${isSidebarCollapsed ? "hidden" : ""}`}
             >
@@ -250,7 +245,7 @@ const Layout = ({ children, title }: Props) => {
           </div>
 
           {/* メインコンテンツ ------------ */}
-          <div className="w-5/6">{children}</div>
+          <div className="w-5/6 flex flex-grow">{children}</div>
         </div>
       </main>
     </>

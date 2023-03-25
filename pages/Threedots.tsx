@@ -6,7 +6,7 @@ function Threedots() {
   return (
     <>
       <Layout title="Comming soon...">
-        <div className={styles.centerImage}>
+        <div className={styles.centerImage} >
           <div className={styles.contentsBox}>
             <div className={styles.pulseWrapper}>
               <div className={styles.pulseDot1}></div>
