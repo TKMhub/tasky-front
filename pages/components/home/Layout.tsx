@@ -129,7 +129,7 @@ const Layout = ({ children, title }: Props) => {
       <Head>
         <title>{title}</title>
         <meta charSet="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="preload"
@@ -157,7 +157,7 @@ const Layout = ({ children, title }: Props) => {
                   ダッシュボード
                 </span>
               </Link>
-              <Link href="/Threedots" passHref={true}>
+              <Link href="/Mytask" passHref={true}>
                 <span className="text-xl transition-all duration-200 hover:text-blue-500 cursor-pointer">
                   タスク
                 </span>
