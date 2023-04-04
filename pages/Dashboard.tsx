@@ -1,7 +1,4 @@
-import { Inter } from "next/font/google";
 import Layout from "./components/home/Layout";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Dashboard() {
   const data = [
