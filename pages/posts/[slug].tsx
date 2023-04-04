@@ -14,13 +14,16 @@ const SinglePost = ({ title, description, date, tags, slug }: Props) => {
     <section className="lg:w-1/2 bg-sky-600 mb-8 mx-auto rounded-md p-5 shadow-xl hover:shadow-none hover:translate-y-1 transition-all duration-300">
       <div className="flex items-center gap-3">
         <h2 className="text-gray-100 text-2xl font-medium mb-2">
-          <Link href={`/posts/${slug}`}>
-            {title}
+          <Link href={`/posts/${slug}`} passHref>
+            <a>{title}</a>
           </Link>
         </h2>
         <div className="text-gray-100">{date}</div>
         {tags.map((tag) => (
-          <span className="text-white bg-gray-500 rounded-xl px-2 font-medium" key={tag}>
+          <span
+            className="text-white bg-gray-500 rounded-xl px-2 font-medium"
+            key={tag}
+          >
             {tag}
           </span>
         ))}
