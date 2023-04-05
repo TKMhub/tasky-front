@@ -1,33 +1,52 @@
-import Link from "next/link";
 import React from "react";
+import Layout from "../components/home/Blog/Layout";
+import { getALLPosts, getSinglePost } from "@/lib/notionAPI";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
-type Props = {
-  title: string;
-  description: string;
-  date: string;
-  tags: string[];
-  slug: string;
+export const getStaticPaths = async () => {
+
+  const allPosts = await getALLPosts();
+  const paths = allPosts.map(({slug}) => ({params: {slug}}));
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
 };
 
-const SinglePost = ({ title, description, date, tags, slug }: Props) => {
+export const getStaticProps = async ({ params }) => {
+  const post = await getSinglePost(params.slug);
+
+  return {
+    props: {
+      post,
+    },
+    revalidate: 60 * 60, //SSGをしつつ、60秒毎に内容を更新していくのが、ISR
+  };
+};
+
+const Post = ({ post }) => {
   return (
-    <section className="lg:w-1/2 bg-sky-600 mb-8 mx-auto rounded-md p-5 shadow-xl hover:shadow-none hover:translate-y-1 transition-all duration-300">
-      <div className="flex items-center gap-3">
-        <h2 className="text-gray-100 text-2xl font-medium mb-2">
-          <Link href={`/posts/${slug}`}>
-            {title}
-          </Link>
-        </h2>
-        <div className="text-gray-100">{date}</div>
-        {tags.map((tag) => (
-          <span className="text-white bg-gray-500 rounded-xl px-2 font-medium" key={tag}>
+    <Layout title={"detail"}>
+      <div className="mt-20">
+        <section className="container lg:px-2 px-5 h-screen lg:w-2/5 mx-auto mt-20">
+          <h2 className="w-full text-2xl font-medium">{post.metadata.title}</h2>
+          <div className="border-b-2 w-1/3 mt-1 mt-1 border-sky-900"></div>
+          <span className="text-gray-500">posted date at{post.metadata.date}</span>
+          <br />
+          {post.metadata.tags.map((tag) => (
+          <p className="text-white bg-sky-900 rounded-xl font-medium mt-2 px-3 mx-2 inline-block" key={tag}>
             {tag}
-          </span>
-        ))}
+          </p>
+          ))}
+          <div className="mt-10 font-medium">
+            <ReactMarkdown children={post.markdown}>
+            </ReactMarkdown>
+          </div>
+        </section>
       </div>
-      <p className="text-gray-100">{description}</p>
-    </section>
+    </Layout>
   );
 };
 
-export default SinglePost;
+export default Post;
